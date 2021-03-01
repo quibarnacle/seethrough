@@ -11,6 +11,8 @@ func _ready():
 	for child in get_children():
 		child.connect("activated", self, "_on_Pulsar_activated")
 		child.connect("desactivated", self, "_on_Pulsar_desactivated")
+		self.connect("pulsar_group_activated", child, "_on_PulsarManagar_pulsar_group_activated")
+		self.connect("pulsar_group_desactivated", child, "_on_PulsarManagar_pulsar_group_desactivated")
 		
 func _on_Pulsar_activated():
 	_nb_active += 1

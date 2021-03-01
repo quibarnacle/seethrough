@@ -1,19 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Mask.gd" type="Script" id=1]
 [ext_resource path="res://Level.gd" type="Script" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://assets/lens.png" type="Texture" id=4]
-[ext_resource path="res://mask_finish_shader.shader" type="Shader" id=5]
 [ext_resource path="res://assets/mask1.png" type="Texture" id=6]
-[ext_resource path="res://assets/level1.png" type="Texture" id=7]
-[ext_resource path="res://Pulsar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/pulsar_large.png" type="Texture" id=9]
 [ext_resource path="res://assets/level1_finish_mask.png" type="Texture" id=10]
-[ext_resource path="res://FinishMask.gd" type="Script" id=11]
-[ext_resource path="res://PulsarManager.gd" type="Script" id=12]
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform sampler2D mask_texture;
@@ -24,82 +18,24 @@ void fragment() {
 	COLOR.a = texture(mask_texture, UV).r;
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/scale = 1.0
 shader_param/mask_texture = ExtResource( 10 )
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 5 )
-shader_param/scale = 20.0
-shader_param/pivot = Vector2( 0.8, 0.5 )
-shader_param/mask_texture = ExtResource( 10 )
-
-[sub_resource type="Animation" id=6]
-resource_name = "finish_animation"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:material:shader_param/scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 20.0 ]
-}
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 100.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
 RADIUS = 35
 
-[node name="PulsarManager" type="Node2D" parent="."]
-script = ExtResource( 12 )
-
-[node name="Pulsar" parent="PulsarManager" instance=ExtResource( 8 )]
-
-[node name="Pulsar2" parent="PulsarManager" instance=ExtResource( 8 )]
-position = Vector2( 214, 414 )
-
-[node name="Background" type="Sprite" parent="."]
-texture = ExtResource( 7 )
-centered = false
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 646.296, 308.299 )
-texture = ExtResource( 9 )
-
 [node name="Mask" type="Sprite" parent="."]
-material = SubResource( 5 )
+material = SubResource( 2 )
+z_index = 1
 texture = ExtResource( 6 )
 centered = false
 script = ExtResource( 1 )
-
-[node name="FinishMask" type="Sprite" parent="."]
-visible = false
-material = SubResource( 3 )
-texture = ExtResource( 6 )
-centered = false
-script = ExtResource( 11 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FinishMask"]
-anims/finish_animation = SubResource( 6 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 400, 300 )
@@ -108,7 +44,7 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
