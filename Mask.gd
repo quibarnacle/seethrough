@@ -10,6 +10,7 @@ var previous_positions := []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = true
 	maskEdit = Image.new()
 	maskEdit.create(texture.get_size().x / SCALE, 
 		texture.get_size().y / SCALE, 

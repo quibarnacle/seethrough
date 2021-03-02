@@ -4,6 +4,7 @@ extends Node2D
 export var RADIUS := 20
 
 var mask
+var finishMask
 var player
 var collision_shape
 
@@ -13,6 +14,7 @@ var _nb_active := 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mask = $Mask
+	finishMask= $FinishMask	
 	player = $Player
 	collision_shape = $Player/CollisionShape2D
 	_set_radius(RADIUS)
