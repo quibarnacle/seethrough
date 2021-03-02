@@ -1,8 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Pulsar.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Pulsar.gd" type="Script" id=1]
 [ext_resource path="res://assets/pulsar.png" type="Texture" id=2]
-[ext_resource path="res://Pulse.tres" type="Animation" id=3]
+[ext_resource path="res://animations/Pulse.tres" type="Animation" id=3]
+
+
+
 
 [node name="Pulsar" type="Area2D"]
 collision_layer = 2

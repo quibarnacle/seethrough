@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/level1_path.png-5eab519181bd301e39579f51112ec36e.stex"
+path="res://.import/level1_finish_mask.png-b7916720f7e71a7a198f2c36513283fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level1_path.png"
-dest_files=[ "res://.import/level1_path.png-5eab519181bd301e39579f51112ec36e.stex" ]
+source_file="res://assets/level_a/level1_finish_mask.png"
+dest_files=[ "res://.import/level1_finish_mask.png-b7916720f7e71a7a198f2c36513283fa.stex" ]
 
 [params]
 
