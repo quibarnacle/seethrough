@@ -5,3 +5,4 @@
 
 [node name="BigPulsar" instance=ExtResource( 2 )]
 texture = ExtResource( 1 )
+centered = false

@@ -3,3 +3,4 @@
 [node name="BigPulsar" type="Sprite" groups=[
 "pulsar_targets",
 ]]
+centered = false

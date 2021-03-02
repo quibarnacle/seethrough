@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Pulsar",
+"language": "GDScript",
+"path": "res://scripts/Pulsar.gd"
+}, {
+"base": "Node2D",
+"class": "PulsarManager",
+"language": "GDScript",
+"path": "res://scripts/PulsarManager.gd"
+} ]
 _global_script_class_icons={
-
+"Pulsar": "",
+"PulsarManager": ""
 }
 
 [application]
