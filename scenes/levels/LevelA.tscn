@@ -1,16 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/FinishMask.tscn" type="PackedScene" id=1]
 [ext_resource path="res://material/finish1.tres" type="Material" id=2]
 [ext_resource path="res://scenes/pulsars/Pulsar1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/pulsars/PulsarManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/level_a/level1_finish_text.png" type="Texture" id=5]
+[ext_resource path="res://scenes/FinishTitle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/level_a/level1.png" type="Texture" id=7]
 [ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/level_a/level1_path.png" type="Texture" id=10]
 [ext_resource path="res://scenes/pulsars/BigPulsar1.tscn" type="PackedScene" id=11]
-
-
-
 
 [node name="LevelA" instance=ExtResource( 8 )]
 position = Vector2( 0, 1.33484 )
@@ -39,3 +38,6 @@ position = Vector2( 567.541, 222.869 )
 
 [node name="FinishMask" parent="." index="4" instance=ExtResource( 1 )]
 material = ExtResource( 2 )
+
+[node name="FinishTitle" parent="FinishMask" index="1" instance=ExtResource( 6 )]
+text_texture = ExtResource( 5 )

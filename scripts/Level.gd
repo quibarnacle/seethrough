@@ -67,9 +67,10 @@ func _on_PulsarManager_desactivated(type : int):
 
 func _finish():
 	mask.visible = false
-	var finish_mask= $FinishMask
-	finish_mask.play()
-	yield(finish_mask, "finished")
+	var finish_mask= get_node("FinishMask")
+	if finish_mask != null:
+		finish_mask.play()
+		yield(finish_mask, "finished")
 	emit_signal("finished")
 	
 func _set_radius(new_radius : float):
