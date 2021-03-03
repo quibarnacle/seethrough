@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/main.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/FinishMaskStart.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/PulsarManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Pulsar1.tscn" type="PackedScene" id=5]
+
+[node name="StartMenu" instance=ExtResource( 2 )]
+START_POSITION = Vector2( 208, 173 )
+
+[node name="Background" type="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="PulsarManager" parent="." index="1" instance=ExtResource( 4 )]
+
+[node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 5 )]
+position = Vector2( 669.956, 131.853 )
+
+[node name="Mask" parent="." index="2"]
+visible = false
+
+[node name="Player" parent="." index="3"]
+position = Vector2( 138.076, 132.511 )
+
+[node name="FinishMask" parent="." index="4" instance=ExtResource( 3 )]
+visible = false

@@ -1,7 +1,9 @@
 extends Node2D
 
+signal finished
 
 export var RADIUS := 20
+export var START_POSITION := Vector2(400, 300)
 
 var mask
 var finishMask
@@ -26,6 +28,7 @@ func _ready():
 	mask.player = player
 	var limits = mask.texture.get_size()
 	player.limits = limits
+	player.position = START_POSITION
 	$Player/Camera2D.limit_top=0
 	$Player/Camera2D.limit_bottom = limits.y
 	$Player/Camera2D.limit_left=0
@@ -64,8 +67,10 @@ func _on_PulsarManager_desactivated(type : int):
 
 func _finish():
 	mask.visible = false
-	var finishMask= $FinishMask
-	finishMask.play()
+	var finish_mask= $FinishMask
+	finish_mask.play()
+	yield(finish_mask, "finished")
+	emit_signal("finished")
 	
 func _set_radius(new_radius : float):
 	mask.radius = new_radius

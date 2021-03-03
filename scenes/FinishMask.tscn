@@ -5,42 +5,15 @@
 [ext_resource path="res://scripts/FinishMask.gd" type="Script" id=3]
 [ext_resource path="res://assets/mask1.png" type="Texture" id=4]
 [ext_resource path="res://shaders/mask_finish_double.shader" type="Shader" id=5]
+[ext_resource path="res://animations/finish.tres" type="Animation" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
-shader_param/scale = 1.0
+shader_param/scale = 20.0
 shader_param/pivot = Vector2( 0.87, 0.2 )
 shader_param/pivot2 = Vector2( 0.16, 0.8 )
 shader_param/mask_texture = ExtResource( 1 )
 shader_param/mask_texture2 = ExtResource( 2 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "finish_animation"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:material:shader_param/scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 20.0 ]
-}
 
 [node name="FinishMask" type="Sprite"]
 material = SubResource( 1 )
@@ -50,4 +23,4 @@ centered = false
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/finish_animation = SubResource( 2 )
+anims/finish_animation = ExtResource( 6 )
