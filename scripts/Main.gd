@@ -31,4 +31,7 @@ func _next():
 			_install(level_a)
 		2:
 			_install(level_b)
+		_:
+			_current = 0
+			_install(start_menu)
 	return _current

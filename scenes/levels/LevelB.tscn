@@ -13,7 +13,7 @@
 [ext_resource path="res://assets/level_b/level_b_finish_text.png" type="Texture" id=11]
 [ext_resource path="res://scenes/FinishTitle.tscn" type="PackedScene" id=12]
 
-[node name="Level" instance=ExtResource( 1 )]
+[node name="LevelB" instance=ExtResource( 1 )]
 START_POSITION = Vector2( 687, 360 )
 
 [node name="Background" type="Sprite" parent="." index="0"]
