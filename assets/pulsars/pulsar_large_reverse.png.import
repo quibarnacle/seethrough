@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pulsar2.png-bd036062a122e315789a204a8f42a926.stex"
+path="res://.import/pulsar_large_reverse.png-d154d848c597baab264db839f450b6c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pulsar2.png"
-dest_files=[ "res://.import/pulsar2.png-bd036062a122e315789a204a8f42a926.stex" ]
+source_file="res://assets/pulsars/pulsar_large_reverse.png"
+dest_files=[ "res://.import/pulsar_large_reverse.png-d154d848c597baab264db839f450b6c1.stex" ]
 
 [params]
 
