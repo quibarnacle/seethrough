@@ -34,7 +34,8 @@ func _set_active(new_active : bool):
 	else:
 		$AnimationPlayer.play_backwards("Pulse")
 		yield($AnimationPlayer, "animation_finished")
-		turn_off()
+		if !_group_active:
+			turn_off()
 
 
 func _on_Pulsar_body_shape_entered(body_id, body, body_shape, area_shape):

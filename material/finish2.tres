@@ -8,6 +8,6 @@
 shader = ExtResource( 1 )
 shader_param/scale = 1.0
 shader_param/pivot = Vector2( 0.87, 0.2 )
-shader_param/pivot2 = Vector2( 0.16, 0.8 )
+shader_param/pivot2 = Vector2( 0.167, 0.375 )
 shader_param/mask_texture = ExtResource( 3 )
 shader_param/mask_texture2 = ExtResource( 2 )

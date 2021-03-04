@@ -36,26 +36,36 @@ position = Vector2( 687.586, 360.544 )
 [node name="PulsarManager1" parent="." index="4" instance=ExtResource( 4 )]
 
 [node name="Pulsar" parent="PulsarManager1" index="0" instance=ExtResource( 6 )]
-position = Vector2( 360, 75 )
+position = Vector2( 188, 312 )
 
 [node name="Pulsar2" parent="PulsarManager1" index="1" instance=ExtResource( 6 )]
-position = Vector2( 360, 325 )
+position = Vector2( 360, 205 )
 
-[node name="BigPulsar" parent="PulsarManager1" index="2" instance=ExtResource( 2 )]
-position = Vector2( 620, 20 )
+[node name="Pulsar3" parent="PulsarManager1" index="2" instance=ExtResource( 6 )]
+position = Vector2( 538, 311 )
+
+[node name="BigPulsar" parent="PulsarManager1" index="3" instance=ExtResource( 2 )]
+position = Vector2( 614, 17 )
 
 [node name="PulsarManager" parent="." index="5" instance=ExtResource( 4 )]
 
 [node name="Pulsar" parent="PulsarManager" index="0" instance=ExtResource( 7 )]
-position = Vector2( 360, 200 )
+position = Vector2( 264, 205 )
 
 [node name="Pulsar2" parent="PulsarManager" index="1" instance=ExtResource( 7 )]
-position = Vector2( 360, 450 )
+position = Vector2( 360, 120 )
 
-[node name="BigPulsar" parent="PulsarManager" index="2" instance=ExtResource( 3 )]
-position = Vector2( 20, 400 )
+[node name="Pulsar3" parent="PulsarManager" index="2" instance=ExtResource( 7 )]
+position = Vector2( 360, 295 )
+
+[node name="Pulsar4" parent="PulsarManager" index="3" instance=ExtResource( 7 )]
+position = Vector2( 453, 205 )
+
+[node name="BigPulsar" parent="PulsarManager" index="4" instance=ExtResource( 3 )]
+position = Vector2( 48, 114 )
 
 [node name="FinishMask" parent="." index="6" instance=ExtResource( 9 )]
+visible = false
 material = ExtResource( 10 )
 texture = ExtResource( 13 )
 
