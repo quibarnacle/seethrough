@@ -3,6 +3,7 @@ extends Node2D
 export var start_menu : PackedScene
 export var level_a : PackedScene
 export var level_b : PackedScene
+export var level_c : PackedScene
 
 var _current := 0
 
@@ -31,6 +32,8 @@ func _next():
 			_install(level_a)
 		2:
 			_install(level_b)
+		3:
+			_install(level_c)
 		_:
 			_current = 0
 			_install(start_menu)

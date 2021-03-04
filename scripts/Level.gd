@@ -3,6 +3,7 @@ extends Node2D
 signal finished
 
 export var RADIUS := 20
+export(float,0.0,1.0, 0.05) var PLAYER_RELATIVE_RADIUS := 0.8
 export var START_POSITION := Vector2(400, 300)
 
 var mask
@@ -16,7 +17,7 @@ var _nb_active := 0
 enum PulsarGroupStatus {INACTIVE, PARTIALLY_ACTIVE, ACTIVE}
 var _pulsar_groups := {}
 var _pulsar_groups_status := {}
-
+var _blockers := []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,6 +48,8 @@ func _ready():
 			_pulsar_groups[type] = pulsar_manager
 			pulsar_manager.type = type
 			type +=1
+		elif child.is_in_group("blockers"):
+			_blockers.append(child)
 
 func _on_PulsarManager_pulsar_activation_requested(type : int, pulsarManager : PulsarManager, pulsar : Pulsar):
 	for key in _pulsar_groups.keys():
@@ -67,6 +70,8 @@ func _on_PulsarManager_desactivated(type : int):
 
 func _finish():
 	mask.visible = false
+	for blocker in _blockers:
+		blocker.queue_free()
 	var finish_mask= get_node("FinishMask")
 	if finish_mask != null:
 		finish_mask.play()
@@ -75,6 +80,6 @@ func _finish():
 	
 func _set_radius(new_radius : float):
 	mask.radius = new_radius
-	collision_shape.shape.radius = new_radius
+	collision_shape.shape.radius = new_radius * PLAYER_RELATIVE_RADIUS
 	player.size = Vector2(new_radius, new_radius)
 	

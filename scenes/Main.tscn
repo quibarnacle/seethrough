@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/LevelA.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Colors.gd" type="Script" id=4]
 [ext_resource path="res://scenes/levels/StartMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/levels/LevelB.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/LevelC.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -19,6 +20,7 @@ script = ExtResource( 1 )
 start_menu = ExtResource( 5 )
 level_a = ExtResource( 2 )
 level_b = ExtResource( 6 )
+level_c = ExtResource( 7 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 material = SubResource( 1 )

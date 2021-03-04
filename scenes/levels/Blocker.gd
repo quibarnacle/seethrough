@@ -1,5 +1,6 @@
 extends Node2D
 
+
 export var MAX_SPEED = 100
 export var ACCELERATION = 10
 
@@ -38,6 +39,7 @@ func _physics_process(delta):
 	else:
 		set_rotation_degrees(_rotations[_current_rotation])
 		_speed = 0
+	
 
 func _is_in_position() -> bool :
 	var _real_rotation = rotation_degrees;

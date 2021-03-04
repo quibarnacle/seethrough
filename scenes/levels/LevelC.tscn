@@ -1,9 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/blocker.png" type="Texture" id=2]
 [ext_resource path="res://assets/blocker_buttons.png" type="Texture" id=3]
 [ext_resource path="res://scenes/levels/Blocker.gd" type="Script" id=4]
+[ext_resource path="res://assets/level_a/level1.png" type="Texture" id=5]
+[ext_resource path="res://assets/level_c/level_c_path.png" type="Texture" id=6]
+[ext_resource path="res://scenes/pulsars/PulsarManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/pulsars/Pulsar1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/pulsars/BigPulsar1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/FinishMask.tscn" type="PackedScene" id=10]
+[ext_resource path="res://material/finish3.tres" type="Material" id=11]
+[ext_resource path="res://scenes/FinishTitle.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/level_c/level_c_finish_text.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 339.688, 282.635 )
@@ -18,12 +27,26 @@ extents = Vector2( 13.45, 44.3282 )
 extents = Vector2( 45.0002, 13.1201 )
 
 [node name="LevelC" instance=ExtResource( 1 )]
-START_POSITION = Vector2( 200, 450 )
+START_POSITION = Vector2( 200, 315 )
 
-[node name="Blocker" type="Node2D" parent="." index="1"]
+[node name="Background" type="Sprite" parent="." index="0"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Path" type="Sprite" parent="." index="1"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Mask" parent="." index="2"]
+visible = false
+
+[node name="Blocker" type="Node2D" parent="." index="3" groups=[
+"blockers",
+]]
 position = Vector2( 400, 300 )
 z_index = 2
 script = ExtResource( 4 )
+start_rotation = 1
 
 [node name="ButtonsSprite" type="Sprite" parent="Blocker" index="0"]
 z_index = 1
@@ -59,8 +82,28 @@ collision_layer = 2
 position = Vector2( 92.0323, 17.6051 )
 shape = SubResource( 4 )
 
-[node name="Player" parent="." index="2"]
-position = Vector2( 206.8, 440.536 )
+[node name="Player" parent="." index="4"]
+position = Vector2( 194.086, 313.4 )
 collision_mask = 2147483652
+
+[node name="PulsarManager" parent="." index="5" instance=ExtResource( 7 )]
+
+[node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 8 )]
+position = Vector2( 100, 50 )
+
+[node name="Pulsar2" parent="PulsarManager" index="1" instance=ExtResource( 8 )]
+position = Vector2( 305, 415 )
+
+[node name="Pulsar3" parent="PulsarManager" index="2" instance=ExtResource( 8 )]
+position = Vector2( 625, 415 )
+
+[node name="BigPulsar" parent="PulsarManager" index="3" instance=ExtResource( 9 )]
+position = Vector2( 115, 235 )
+
+[node name="FinishMask" parent="." index="6" instance=ExtResource( 10 )]
+material = ExtResource( 11 )
+
+[node name="FinishTitle" parent="FinishMask" index="1" instance=ExtResource( 12 )]
+text_texture = ExtResource( 13 )
 [connection signal="body_entered" from="Blocker/ButtonClockwise" to="Blocker" method="_on_ButtonClockwise_body_entered"]
 [connection signal="body_entered" from="Blocker/ButtonCounterClockwise" to="Blocker" method="_on_ButtonCounterClockwise_body_entered"]

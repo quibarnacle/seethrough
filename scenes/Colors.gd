@@ -1,8 +1,8 @@
 extends Node
 
 var _color_catalogue = [
-	[Color("ffae85"), Color("fc766a")],
 	[Color("caf0f8"), Color("03045e")],
+	[Color("ffae85"), Color("fc766a")],
 	#[Color("fcfc18e1"), Color("a418fc")],
 	[Color.white, Color.black],
 	[Color("2d6a4f"), Color("d8f3dc")],
