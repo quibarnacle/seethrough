@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://shaders/mask_finish_double.shader" type="Shader" id=1]
+[ext_resource path="res://assets/level_d/level_d_mask2.png" type="Texture" id=2]
+[ext_resource path="res://assets/level_d/level_d_mask1.png" type="Texture" id=3]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/scale = 1.0
+shader_param/pivot = Vector2( 0.182, 0.629 )
+shader_param/pivot2 = Vector2( 0.814, 0.365 )
+shader_param/mask_texture = ExtResource( 3 )
+shader_param/mask_texture2 = ExtResource( 2 )

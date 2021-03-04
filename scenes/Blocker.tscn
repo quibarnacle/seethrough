@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/levels/Blocker.gd" type="Script" id=1]
+[ext_resource path="res://assets/blocker.png" type="Texture" id=2]
+[ext_resource path="res://assets/blocker_buttons.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 339.688, 282.635 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 46.3218
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 13.45, 44.3282 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 45.0002, 13.1201 )
+
+[node name="Blocker" type="Node2D" groups=[
+"blockers",
+]]
+position = Vector2( 400, 300 )
+z_index = 2
+script = ExtResource( 1 )
+start_rotation = 1
+
+[node name="ButtonsSprite" type="Sprite" parent="."]
+z_index = 1
+z_as_relative = false
+texture = ExtResource( 3 )
+
+[node name="BlockerSprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="BlockerStaticBody" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockerStaticBody"]
+position = Vector2( 363.702, -287.288 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BlockerStaticBody"]
+position = Vector2( 24.8974, -1.58917 )
+shape = SubResource( 2 )
+
+[node name="ButtonClockwise" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonClockwise"]
+position = Vector2( 7.48114, -70.4543 )
+shape = SubResource( 3 )
+
+[node name="ButtonCounterClockwise" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonCounterClockwise"]
+position = Vector2( 92.0323, 17.6051 )
+shape = SubResource( 4 )
+[connection signal="body_entered" from="ButtonClockwise" to="." method="_on_ButtonClockwise_body_entered"]
+[connection signal="body_entered" from="ButtonCounterClockwise" to="." method="_on_ButtonCounterClockwise_body_entered"]
