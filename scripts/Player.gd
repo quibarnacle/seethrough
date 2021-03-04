@@ -13,6 +13,7 @@ var size := Vector2.ZERO
 
 func _ready():
 	velocity = Vector2.ZERO
+	$Sprite/AnimationPlayer.play("spin")
 	
 
 func _physics_process(delta):	

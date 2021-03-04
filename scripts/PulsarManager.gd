@@ -43,11 +43,17 @@ func _on_Pulsar_activated():
 	_nb_active += 1
 	if _nb_active == _nb_expected:
 		for push_up in _push_up_on_activated:
-			push_up.z_index = 2
+			var big_pulsar : BigPulsar = push_up
+			big_pulsar.z_index = 2
+			big_pulsar.switch()
 		emit_signal("pulsar_group_activated", type)
 
 func _on_Pulsar_desactivated():
 	if _nb_active == _nb_expected:
+		for push_up in _push_up_on_activated:
+			var big_pulsar : BigPulsar = push_up
+			big_pulsar.z_index = 0
+			big_pulsar.switch()
 		emit_signal("pulsar_group_desactivated", type)
 	_nb_active -= 1
 	
