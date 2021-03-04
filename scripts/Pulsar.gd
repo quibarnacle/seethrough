@@ -17,6 +17,7 @@ func turn_on():
 		z_index = 2
 		$AnimationPlayer.play("Pulse")
 		$PulseTimeout.start(pulse_time)
+		$AudioStreamPlayer2D.play()
 		emit_signal("activated")
 
 func turn_off():

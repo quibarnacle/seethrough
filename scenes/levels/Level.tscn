@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Mask.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://assets/lens.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/move.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/mask1.png" type="Texture" id=6]
 [ext_resource path="res://assets/level_a/level1_finish_mask.png" type="Texture" id=10]
 
@@ -46,6 +47,7 @@ tracks/0/keys = {
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
 RADIUS = 35
+PLAYER_RELATIVE_RADIUS = 0.7
 
 [node name="Mask" type="Sprite" parent="."]
 material = SubResource( 2 )
@@ -74,3 +76,6 @@ texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Sprite"]
 anims/spin = SubResource( 4 )
+
+[node name="MoveAudio" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource( 5 )

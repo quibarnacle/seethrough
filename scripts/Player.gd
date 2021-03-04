@@ -60,6 +60,12 @@ func _physics_process(delta):
 		elif position.y + half_height < 0:
 			position.y = limits.y - half_height
 	
+	if velocity.x != 0 or velocity.y != 0:
+		if not $MoveAudio.playing:
+			$MoveAudio.play()
+	else:
+		$MoveAudio.stop()
+	
 func _process(delta):	
 	input_movement = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
