@@ -68,12 +68,12 @@ func _physics_process(delta):
 	
 func _process(delta):	
 	input_movement = Vector2.ZERO
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("move_right"):
 		input_movement.x = 1
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("move_left"):
 		input_movement.x = -1
 
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("move_up"):
 		input_movement.y = -1
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("move_down"):
 		input_movement.y = 1

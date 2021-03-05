@@ -79,3 +79,4 @@ anims/spin = SubResource( 4 )
 
 [node name="MoveAudio" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource( 5 )
+volume_db = 10.721
