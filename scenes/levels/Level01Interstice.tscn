@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/interstice2.png" type="Texture" id=2]
+[ext_resource path="res://assets/mask4.png" type="Texture" id=3]
+[ext_resource path="res://material/finish3.tres" type="Material" id=4]
+[ext_resource path="res://scenes/pulsars/PulsarManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/pulsars/Pulsar1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/FinishMask.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/level_a/level1.png" type="Texture" id=8]
+
+[node name="InstersticeB" instance=ExtResource( 1 )]
+START_POSITION = Vector2( 100, 25 )
+
+[node name="Background" type="Sprite" parent="." index="0"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Text" type="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Mask" parent="." index="2"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="PulsarManager" parent="." index="4" instance=ExtResource( 5 )]
+
+[node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 6 )]
+position = Vector2( 649.584, 519.913 )
+
+[node name="Pulsar2" parent="PulsarManager" index="1" instance=ExtResource( 6 )]
+position = Vector2( 584.34, 537.143 )
+
+[node name="FinishMask" parent="." index="5" instance=ExtResource( 7 )]
+visible = false
+material = ExtResource( 4 )
+position = Vector2( 2.99658, 0 )

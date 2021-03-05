@@ -27,6 +27,7 @@ texture = ExtResource( 8 )
 centered = false
 
 [node name="Mask" parent="." index="2"]
+visible = false
 texture = ExtResource( 13 )
 
 [node name="Player" parent="." index="3"]

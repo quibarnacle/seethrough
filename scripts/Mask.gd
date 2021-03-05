@@ -1,6 +1,7 @@
 extends Sprite
 
 export var SCALE := 10
+export var MEMORY := 70
 
 var radius
 var maskEdit : Image
@@ -46,5 +47,5 @@ func _check(x : int, y : int) -> bool:
 
 func _add_position(last_pos : Vector2):
 	previous_positions.push_front(last_pos  / SCALE)
-	while previous_positions.size() > 50:
+	while previous_positions.size() > MEMORY:
 		previous_positions.pop_back()
