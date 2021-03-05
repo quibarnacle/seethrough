@@ -8,14 +8,25 @@ signal desactivated
 
 export var active := false setget _set_active
 export var pulse_time := 5
+export(AudioStream) var pickup_sound
+export(Texture) var texture_active
+var texture_inactive : Texture
 
 var _group_active := false
+
+onready var audio : = $AudioStreamPlayer2D
+
+func _ready():
+	texture_inactive = $Sprite.texture
+	if pickup_sound != null:
+		audio.stream = pickup_sound
 
 func turn_on():
 	if !active:
 		active = true
 		z_index = 2
 		$AnimationPlayer.play("Pulse")
+		$Sprite.texture = texture_active
 		$PulseTimeout.start(pulse_time)
 		$AudioStreamPlayer2D.play()
 		emit_signal("activated")
@@ -26,6 +37,7 @@ func turn_off():
 		emit_signal("desactivated")
 		z_index = 0
 		$PulseTimeout.stop()
+		$Sprite.texture = texture_inactive
 
 func _set_active(new_active : bool):
 	if new_active == active:
@@ -33,7 +45,7 @@ func _set_active(new_active : bool):
 	if new_active:
 		turn_on()
 	else:
-		$AnimationPlayer.play_backwards("Pulse")
+		$AnimationPlayer.play("pulse_out")
 		yield($AnimationPlayer, "animation_finished")
 		if !_group_active:
 			turn_off()
@@ -52,6 +64,8 @@ func _on_PulseTimeout_timeout():
 
 func _on_PulsarManagar_pulsar_group_activated(type):
 	_group_active = true
+	$AnimationPlayer.stop(true)
+	$Sprite.scale = Vector2(1,1)
 
 func _on_PulsarManagar_pulsar_group_desactivated(type):
 	_group_active = false

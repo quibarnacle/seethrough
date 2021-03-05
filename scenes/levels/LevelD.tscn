@@ -33,13 +33,16 @@ texture = ExtResource( 14 )
 [node name="PulsarManager" parent="." index="4" instance=ExtResource( 4 )]
 
 [node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 5 )]
-position = Vector2( 151, 205 )
+position = Vector2( 191, 245 )
+pulse_time = 10
 
 [node name="Pulsar2" parent="PulsarManager" index="1" instance=ExtResource( 5 )]
-position = Vector2( 503, 402 )
+position = Vector2( 543, 442 )
+pulse_time = 10
 
 [node name="Pulsar3" parent="PulsarManager" index="2" instance=ExtResource( 5 )]
-position = Vector2( 459, 22 )
+position = Vector2( 499, 62 )
+pulse_time = 10
 
 [node name="BigPulsar" parent="PulsarManager" index="3" instance=ExtResource( 6 )]
 position = Vector2( 570, 145 )
@@ -47,13 +50,16 @@ position = Vector2( 570, 145 )
 [node name="PulsarManager2" parent="." index="5" instance=ExtResource( 4 )]
 
 [node name="Pulsar" parent="PulsarManager2" index="0" instance=ExtResource( 7 )]
-position = Vector2( 167, 67 )
+position = Vector2( 207, 107 )
+pulse_time = 10
 
 [node name="Pulsar2" parent="PulsarManager2" index="1" instance=ExtResource( 7 )]
-position = Vector2( 219, 417 )
+position = Vector2( 259, 457 )
+pulse_time = 10
 
 [node name="Pulsar3" parent="PulsarManager2" index="2" instance=ExtResource( 7 )]
-position = Vector2( 553, 334 )
+position = Vector2( 593, 374 )
+pulse_time = 10
 
 [node name="BigPulsar" parent="PulsarManager2" index="3" instance=ExtResource( 8 )]
 position = Vector2( 65, 304 )

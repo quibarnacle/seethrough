@@ -6,9 +6,6 @@
 [ext_resource path="res://scenes/pulsars/PulsarManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/pulsars/Pulsar1.tscn" type="PackedScene" id=5]
 
-
-
-
 [node name="StartMenu" instance=ExtResource( 2 )]
 START_POSITION = Vector2( 208, 173 )
 
@@ -19,7 +16,7 @@ centered = false
 [node name="PulsarManager" parent="." index="1" instance=ExtResource( 4 )]
 
 [node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 5 )]
-position = Vector2( 669.956, 131.853 )
+position = Vector2( 709.956, 171.853 )
 
 [node name="Mask" parent="." index="2"]
 visible = false

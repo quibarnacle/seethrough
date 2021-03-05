@@ -1,17 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/pulsars/Pulsar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/pulsars/pulsar2.png" type="Texture" id=2]
-
+[ext_resource path="res://assets/sounds/switch2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/pulsars/pulsar2_reverse.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 35.0
 
 [node name="Pulsar" instance=ExtResource( 1 )]
+pickup_sound = ExtResource( 3 )
+texture_active = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-position = Vector2( 40, 40 )
+visible = false
 shape = SubResource( 1 )

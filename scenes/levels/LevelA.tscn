@@ -30,10 +30,10 @@ centered = false
 [node name="PulsarManager" parent="." index="3" instance=ExtResource( 4 )]
 
 [node name="Pulsar" parent="PulsarManager" index="0" instance=ExtResource( 3 )]
-position = Vector2( 132.149, 58.7329 )
+position = Vector2( 172.149, 98.733 )
 
 [node name="Pulsar2" parent="PulsarManager" index="1" instance=ExtResource( 3 )]
-position = Vector2( 359.18, 485.843 )
+position = Vector2( 399.18, 525.843 )
 
 [node name="BigPulsar" parent="PulsarManager" index="2" instance=ExtResource( 11 )]
 position = Vector2( 567.541, 222.869 )

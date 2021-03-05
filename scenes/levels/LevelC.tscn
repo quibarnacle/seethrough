@@ -37,13 +37,16 @@ collision_mask = 2147483652
 [node name="PulsarManager" parent="." index="5" instance=ExtResource( 7 )]
 
 [node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 8 )]
-position = Vector2( 100, 50 )
+position = Vector2( 140, 90 )
+pulse_time = 10
 
 [node name="Pulsar2" parent="PulsarManager" index="1" instance=ExtResource( 8 )]
-position = Vector2( 305, 415 )
+position = Vector2( 345, 455 )
+pulse_time = 10
 
 [node name="Pulsar3" parent="PulsarManager" index="2" instance=ExtResource( 8 )]
-position = Vector2( 625, 415 )
+position = Vector2( 665, 455 )
+pulse_time = 10
 
 [node name="BigPulsar" parent="PulsarManager" index="3" instance=ExtResource( 9 )]
 position = Vector2( 115, 235 )

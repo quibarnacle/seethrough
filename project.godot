@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TwoColors"
+config/name="seethrough"
 run/main_scene="res://scenes/Main.tscn"
 
 [display]

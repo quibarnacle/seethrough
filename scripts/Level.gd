@@ -27,6 +27,7 @@ func _ready():
 	collision_shape = $Player/CollisionShape2D
 	_set_radius(RADIUS)
 	mask.player = player
+	mask.visible = true
 	var limits = mask.texture.get_size()
 	player.limits = limits
 	player.position = START_POSITION
