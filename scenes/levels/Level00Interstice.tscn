@@ -11,12 +11,12 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 46.7876, 411.462, 0, 0, 0, 0, 496.28, 412.96 )
+"points": PoolVector2Array( 0, 0, 0, 0, -44.7154, 412.399, 0, 0, 0, 0, 496.28, 412.96, 0, 0, 0, 0, 543.235, 413.659, 0, 0, 0, 0, 842.399, 413.659, 0, 0, 0, 0, 834.467, -39.4806, 0, 0, 0, 0, -65.5897, -63.2916, 0, 0, 0, 0, -76.7015, 104.973, 0, 0, 0, 0, 10.6055, 106.56 )
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "follow_path"
-length = 4.0
+length = 9.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("PathFollow2D:unit_offset")
 tracks/0/interp = 1
@@ -24,10 +24,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 7.5, 7.6, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.0 ]
+"values": [ 0.0, 0.3448, 0.977, 1.0 ]
 }
 
 [node name="InstersticeA" instance=ExtResource( 1 )]
@@ -48,7 +48,7 @@ texture = ExtResource( 3 )
 [node name="PulsarManager" parent="." index="4" instance=ExtResource( 5 )]
 
 [node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 6 )]
-position = Vector2( 541.706, 418.028 )
+position = Vector2( 534.29, 519.736 )
 
 [node name="FinishMask" parent="." index="5" instance=ExtResource( 7 )]
 texture = ExtResource( 3 )
@@ -60,8 +60,8 @@ curve = SubResource( 1 )
 script = ExtResource( 8 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="LevelStart" index="0"]
-position = Vector2( 46.7876, 411.462 )
-rotation = 0.00332326
+position = Vector2( -44.7154, 412.399 )
+rotation = 0.00102931
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelStart" index="1"]
 anims/follow_path = SubResource( 2 )
