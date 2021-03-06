@@ -20,11 +20,8 @@ var _pulsar_groups_status := {}
 var _blockers := []
 var level_start : LevelStart
 
-var _started : bool
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_started = false
 	mask = $Mask
 	finishMask= $FinishMask	
 	player = $Player
@@ -33,8 +30,8 @@ func _ready():
 	mask.player = player
 	mask.visible = true
 	var limits = mask.texture.get_size()
+	player.position = Vector2(-100,-100)
 	player.limits = limits
-	player.position = START_POSITION
 	$Player/Camera2D.limit_top=0
 	$Player/Camera2D.limit_bottom = limits.y
 	$Player/Camera2D.limit_left=0
@@ -58,19 +55,18 @@ func _ready():
 		elif child.is_in_group("level_start"):
 			level_start = child
 	if level_start != null:
+		player.follow(level_start.follower())
 		level_start.connect("finished", self, "_on_LevelStart_finished")
 		level_start.start()
 	else:
 		start()
 
-func _process(delta):
-	if not _started:
-		mask.set_shader_texture(mask.EMPTY_TEXTURE)
-
 func start():
+	mask.reset_mask()
 	player.start()
-	mask.start()
-	_started = true
+	player.position = START_POSITION
+	for group in _pulsar_groups.values():
+		group.start()
 
 func _on_LevelStart_finished():
 	start()

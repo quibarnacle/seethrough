@@ -28,6 +28,10 @@ func _ready():
 		elif child.is_in_group("pulsar_targets"):
 			_push_up_on_activated.push_back(child)
 
+func start():
+	for child in _switchs:
+		child.start()
+
 func activate(pulsar : Pulsar):
 	pulsar.activate()
 

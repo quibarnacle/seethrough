@@ -11,6 +11,7 @@ var limits := Vector2.ZERO
 var size := Vector2.ZERO
 
 var _active : bool
+var _path : Node2D
 
 func _ready():
 	_active = false
@@ -22,9 +23,16 @@ func start():
 	_active = true
 	$Sprite/AnimationPlayer.play("spin")
 
+func follow(path : Node2D):
+	_path = path
+
 func _physics_process(delta):
-	if not _active:
-		return
+	if _active:
+		move(delta)
+	elif _path != null:
+		position = _path.get_global_transform().origin
+
+func move(delta):
 	# X movement
 	if input_movement.x != 0:
 		var new_acceleration = input_movement.x * ACCELERATION * delta

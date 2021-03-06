@@ -13,6 +13,7 @@ export(Texture) var texture_active
 var texture_inactive : Texture
 
 var _group_active := false
+var _started := false
 
 onready var audio : = $AudioStreamPlayer2D
 
@@ -20,6 +21,9 @@ func _ready():
 	texture_inactive = $Sprite.texture
 	if pickup_sound != null:
 		audio.stream = pickup_sound
+	
+func start():
+	_started = true
 
 func turn_on():
 	if !active:
@@ -52,7 +56,7 @@ func _set_active(new_active : bool):
 
 
 func _on_Pulsar_body_shape_entered(body_id, body, body_shape, area_shape):
-	if !active:
+	if _started and not active:
 		emit_signal("activation_requested", self)
 	
 func activate():

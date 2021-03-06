@@ -8,34 +8,26 @@
 [ext_resource path="res://scenes/pulsars/Pulsar1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/FinishMask.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/LevelStart.gd" type="Script" id=8]
-[ext_resource path="res://assets/interstice1_highlight.png" type="Texture" id=9]
 
-[sub_resource type="Animation" id=1]
-resource_name = "fade_out"
-length = 3.0
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 46.7876, 411.462, 0, 0, 0, 0, 496.28, 412.96 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "follow_path"
+length = 4.0
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.01, 1.01 ), Vector2( 1, 1 ), Vector2( 1.01, 1.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+"values": [ 0.0, 1.0 ]
 }
 
 [node name="InstersticeA" instance=ExtResource( 1 )]
@@ -61,14 +53,16 @@ position = Vector2( 541.706, 418.028 )
 [node name="FinishMask" parent="." index="5" instance=ExtResource( 7 )]
 texture = ExtResource( 3 )
 
-[node name="Highlight" type="Sprite" parent="." index="6" groups=[
+[node name="LevelStart" type="Path2D" parent="." index="6" groups=[
 "level_start",
 ]]
-z_index = 2
-texture = ExtResource( 9 )
-centered = false
+curve = SubResource( 1 )
 script = ExtResource( 8 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Highlight" index="0"]
-anims/fade_out = SubResource( 1 )
-[connection signal="animation_finished" from="Highlight/AnimationPlayer" to="Highlight" method="_on_AnimationPlayer_animation_finished"]
+[node name="PathFollow2D" type="PathFollow2D" parent="LevelStart" index="0"]
+position = Vector2( 46.7876, 411.462 )
+rotation = 0.00332326
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelStart" index="1"]
+anims/follow_path = SubResource( 2 )
+[connection signal="animation_finished" from="LevelStart/AnimationPlayer" to="LevelStart" method="_on_AnimationPlayer_animation_finished"]
