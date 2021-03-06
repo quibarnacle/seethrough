@@ -53,6 +53,8 @@ z_index = 1
 texture = ExtResource( 6 )
 centered = false
 script = ExtResource( 1 )
+SCALE = 12
+MEMORY = 60
 EMPTY_TEXTURE = ExtResource( 7 )
 
 [node name="Player" type="KinematicBody2D" parent="."]

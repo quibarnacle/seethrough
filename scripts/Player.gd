@@ -71,11 +71,11 @@ func move(delta):
 		if position.x - half_width > limits.x:
 			position.x = limits.x + half_width
 		elif position.x + half_width < 0:
-			position.x = limits.x - half_width	
+			position.x = 0 - half_width	
 		if position.y - half_height > limits.y:
 			position.y = limits.y + half_height
 		elif position.y + half_height < 0:
-			position.y = limits.y - half_height
+			position.y = 0 - half_height
 	
 	if velocity.x != 0 or velocity.y != 0:
 		if not $MoveAudio.playing:
