@@ -18,9 +18,13 @@ enum PulsarGroupStatus {INACTIVE, PARTIALLY_ACTIVE, ACTIVE}
 var _pulsar_groups := {}
 var _pulsar_groups_status := {}
 var _blockers := []
+var level_start : LevelStart
+
+var _started : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_started = false
 	mask = $Mask
 	finishMask= $FinishMask	
 	player = $Player
@@ -51,6 +55,25 @@ func _ready():
 			type +=1
 		elif child.is_in_group("blockers"):
 			_blockers.append(child)
+		elif child.is_in_group("level_start"):
+			level_start = child
+	if level_start != null:
+		level_start.connect("finished", self, "_on_LevelStart_finished")
+		level_start.start()
+	else:
+		start()
+
+func _process(delta):
+	if not _started:
+		mask.set_shader_texture(mask.EMPTY_TEXTURE)
+
+func start():
+	player.start()
+	mask.start()
+	_started = true
+
+func _on_LevelStart_finished():
+	start()
 
 func _on_PulsarManager_pulsar_activation_requested(type : int, pulsarManager : PulsarManager, pulsar : Pulsar):
 	for key in _pulsar_groups.keys():

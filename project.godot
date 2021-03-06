@@ -12,12 +12,17 @@ _global_script_classes=[ {
 "base": "Sprite",
 "class": "BigPulsar",
 "language": "GDScript",
-"path": "res://scenes/pulsars/BigPulsar.gd"
+"path": "res://scripts/BigPulsar.gd"
 }, {
 "base": "Sprite",
 "class": "FinishTitle",
 "language": "GDScript",
-"path": "res://scenes/levels/FinishTitle.gd"
+"path": "res://scripts/FinishTitle.gd"
+}, {
+"base": "Sprite",
+"class": "LevelStart",
+"language": "GDScript",
+"path": "res://scripts/LevelStart.gd"
 }, {
 "base": "Area2D",
 "class": "Pulsar",
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BigPulsar": "",
 "FinishTitle": "",
+"LevelStart": "",
 "Pulsar": "",
 "PulsarManager": ""
 }

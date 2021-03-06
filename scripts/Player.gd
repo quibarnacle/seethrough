@@ -10,13 +10,21 @@ var velocity : Vector2
 var limits := Vector2.ZERO
 var size := Vector2.ZERO
 
+var _active : bool
 
 func _ready():
+	_active = false
+	visible = false
 	velocity = Vector2.ZERO
-	$Sprite/AnimationPlayer.play("spin")
-	
 
-func _physics_process(delta):	
+func start():
+	visible = true
+	_active = true
+	$Sprite/AnimationPlayer.play("spin")
+
+func _physics_process(delta):
+	if not _active:
+		return
 	# X movement
 	if input_movement.x != 0:
 		var new_acceleration = input_movement.x * ACCELERATION * delta
