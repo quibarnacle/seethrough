@@ -37,7 +37,8 @@ func _physics_process(delta):
 		speed.y = 0
 	velocity.y = speed.y
 	
-	move_and_slide(velocity, Vector2.UP)
+	if velocity != Vector2.ZERO:
+		move_and_slide(velocity, Vector2.UP)
 
 	var half_width = size.x / 2.0
 	var half_height = size.y / 2.0

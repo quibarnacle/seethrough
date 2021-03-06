@@ -1,6 +1,6 @@
 extends Node2D
 
-export(Array, PackedScene) var _levels
+var _levels = []
 
 var _current := 0
 
@@ -13,7 +13,7 @@ func _ready():
 
 func _find_levels():
 	var _base_name = "res://scenes/levels/Level0"
-	for i in range(0, 4):
+	for i in range(0, 5):
 		var _level = ResourceLoader.load(_base_name + str(i) + ".tscn")
 		if _level != null:
 			_levels.append(_level)

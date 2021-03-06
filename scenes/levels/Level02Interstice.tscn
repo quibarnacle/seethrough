@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/interstice3.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/pulsars/Pulsar1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/FinishMask.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/background3.png" type="Texture" id=8]
+[ext_resource path="res://assets/mask4.png" type="Texture" id=9]
 
 [node name="InstersticeC" instance=ExtResource( 1 )]
 START_POSITION = Vector2( 30, 50 )
@@ -39,3 +40,4 @@ position = Vector2( 632.286, 537.892 )
 visible = false
 material = ExtResource( 4 )
 position = Vector2( 2.99658, 0 )
+texture = ExtResource( 9 )

@@ -30,6 +30,9 @@ centered = false
 visible = false
 texture = ExtResource( 14 )
 
+[node name="Player" parent="." index="3"]
+LOOP_XY = false
+
 [node name="PulsarManager" parent="." index="4" instance=ExtResource( 4 )]
 
 [node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 5 )]
@@ -68,6 +71,7 @@ position = Vector2( 65, 304 )
 start_rotation = 2
 
 [node name="FinishMask" parent="." index="7" instance=ExtResource( 10 )]
+visible = false
 material = ExtResource( 11 )
 texture = ExtResource( 14 )
 

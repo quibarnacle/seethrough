@@ -1,22 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/background2.png" type="Texture" id=2]
-[ext_resource path="res://assets/mask3.png" type="Texture" id=3]
-[ext_resource path="res://assets/interstice1.png" type="Texture" id=4]
+[ext_resource path="res://assets/interstice4.png" type="Texture" id=2]
+[ext_resource path="res://assets/mask5.png" type="Texture" id=3]
+[ext_resource path="res://material/finish4.tres" type="Material" id=4]
 [ext_resource path="res://scenes/pulsars/PulsarManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/pulsars/Pulsar1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/FinishMask.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/background4.png" type="Texture" id=8]
 
-[node name="InstersticeA" instance=ExtResource( 1 )]
-START_POSITION = Vector2( 10, 110 )
+[node name="InstersticeD" instance=ExtResource( 1 )]
+START_POSITION = Vector2( 15, 70 )
 
 [node name="Background" type="Sprite" parent="." index="0"]
-texture = ExtResource( 2 )
+texture = ExtResource( 8 )
 centered = false
 
 [node name="Text" type="Sprite" parent="." index="1"]
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 centered = false
 
 [node name="Mask" parent="." index="2"]
@@ -25,8 +26,11 @@ texture = ExtResource( 3 )
 
 [node name="PulsarManager" parent="." index="4" instance=ExtResource( 5 )]
 
-[node name="Pulsar1" parent="PulsarManager" index="0" instance=ExtResource( 6 )]
-position = Vector2( 541.706, 418.028 )
+[node name="Pulsar2" parent="PulsarManager" index="0" instance=ExtResource( 6 )]
+position = Vector2( 518.415, 513.17 )
 
 [node name="FinishMask" parent="." index="5" instance=ExtResource( 7 )]
+visible = false
+material = ExtResource( 4 )
+position = Vector2( 2.99658, 0 )
 texture = ExtResource( 3 )
